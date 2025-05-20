@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Play Polytrack</title>
+</head>
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh; background: #111; color: white; font-family: sans-serif;">
+
+  <button onclick="launchGame()" style="padding: 20px 40px; font-size: 20px; cursor: pointer;">
+    🎮 Play Polytrack Fullscreen
+  </button>
+
+  <script>
+    function launchGame() {
+      const gameUrl = "https://iammyguy21th.github.io/polytrack.3/";
+      const win = window.open("about:blank", "_blank");
+
+      if (win) {
+        win.document.write(`
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <title>Polytrack</title>
+            <style>
+              html, body { margin: 0; height: 100%; overflow: hidden; background: black; }
+              iframe { width: 100vw; height: 100vh; border: none; }
+            </style>
+          </head>
+          <body>
+            <iframe src="${gameUrl}" allowfullscreen></iframe>
+          </body>
+          </html>
+        `);
+        win.document.close();
+      } else {
+        alert("Popup blocked! Please allow popups and try again.");
+      }
+    }
+  </script>
+
+</body>
+</html>
